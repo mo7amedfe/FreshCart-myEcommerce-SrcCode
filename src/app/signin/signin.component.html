@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row d-flex py-lg-3">
+
+
+        <div *ngIf="errMessage" class="alert alert-danger">
+            <h4>{{errMessage}}</h4>
+        </div>
+
+
+        <h5 class="my-3">Login</h5>
+
+        <form class="" [formGroup]="loginGroup" class="my-4 " action="" (submit)="signin(loginGroup)">
+
+            <label for="">Email</label>
+            <input formControlName="email" class="form-control" type="email">
+
+            <label for="">Password</label>
+            <input formControlName="password" class="form-control" type="password">
+
+            <div class="d-flex justify-content-end my-2 ">
+                <button type="submit" [disabled]="loginGroup.invalid" class="btn text-light w-auto bg-mainColor btnReg  my-2"> <span *ngIf="isLoading" ><i class="fa-spin fa-solid fa-spinner"></i></span><span *ngIf="!isLoading">Login</span></button>
+            </div>
+
+        </form>
+
+
+        <p>if you don't have an account yet <a class="anchor" routerLink="/signup">Register</a> .</p>
+
+        
+
+    </div>
+</div>

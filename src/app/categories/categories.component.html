@@ -1,0 +1,45 @@
+<div class="container">
+
+
+    <div *ngIf="Products.length!=0" class="row d-flex flex-wrap my-3">
+
+        <div class="col-md-2 my-2" *ngFor="let product of Products">
+            <a [routerLink]="['/productPage',product._id]">
+
+                <div class="product p-2 w-100">
+
+                    <div class="w-100 overflow-hidden">
+                        <img [src]='product.imageCover' alt="" class="pro-img w-100">
+                    </div>
+                    <div class="rate-price pe-3">
+                        <span class="text-sm mainColor">{{product.category.name}}</span>
+                        <h6>{{product.title|seeMore:5}}</h6>
+
+                        <h6 class="d-inline float-start">{{product.price}} egp</h6>
+                        <h6 class="d-inline float-end">{{product.ratingsAverage}} <i
+                                class="fa-solid fa-star text-warning text-end"></i></h6>
+                    </div>
+
+                    <div class="product-detailes ">
+
+                        <button (click)="addToWishList(product._id)" class="btn btn-outline-danger btn-outline-light ">
+                            <i id="icon" class="fa-heart" [class]="isWishlist?'fa-solid':'fa-regular'"></i>
+                        </button>
+
+                        <p class="text-light desc text-center">{{product.description|seeMore:25}}</p>
+
+                        <button (click)="addItemToCart(product._id)" class=" btn btn-outline-light mt-2 add-btn">+
+                            add</button>
+                    </div>
+
+                </div>
+            </a>
+
+        </div>
+
+       
+    </div>
+    <div *ngIf="Products.length==0" class="w-100">
+        <h1>We are sorry..No products yet for this category.</h1>
+    </div>
+</div>

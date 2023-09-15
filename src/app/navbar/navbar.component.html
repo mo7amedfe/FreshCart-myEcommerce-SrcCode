@@ -1,0 +1,166 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light m-auto align-items-center w-100 ">
+
+    <a class="navbar-brand d-flex justify-content-start" routerLink="/home"><img class="w-100"
+            src="././assets/images/freshcart-logo.svg" alt="" srcset="">
+    </a>
+
+    <input #search id="searchInp" class="form-control searchInp " placeholder="Search for product" type="text">
+
+
+
+    <div [class]="(Products|search:search.value).length==0?'d-none':''" id="search-div" class="search-product-list">
+        <ul class="list-unstyled ">
+            <a class="nav-link cursor-pointer" *ngFor="let element of Products|search:search.value"
+                (click)="itemClick(element._id)" (click)="search.value=''">
+                <li class="nav-item search-element w-100 ">
+                    <span class="d-flex flex-wrap align-items-center "><img [src]="element.imageCover">
+                        <p>{{element.title}}</p>
+                    </span>
+                </li>
+            </a>
+        </ul>
+    </div>
+
+
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse m-0 p-0" id="collapsibleNavId">
+        <ul *ngIf="isLogin ==true"
+            class="navbar-nav text-center d-flex flex-wrap align-items-center justify-content-around mt-1 mt-lg-0">
+
+
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="/cart">
+                    <button type="button" class="btn  position-relative">
+                        <span>cart </span>
+                        <span><i class="fa fa-solid mainColor fa-shopping-cart"></i></span>
+                        <span *ngIf="numOfCartItems!=0"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{numOfCartItems}}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button>
+                </a>
+            </li>
+
+            <li id="yourordersNav" class="nav-item d-none">
+                <a class="nav-link " routerLinkActive="active" routerLink="/allorders"><button type="button"
+                        class="btn  position-relative">
+                        <span>Your Orders </span>
+
+                        <span *ngIf="ordersRes.length!=0"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ordersRes.length}}
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </button></a>
+            </li>
+
+        </ul>
+
+
+        <ul class="navbar-nav d-flex flex-wrap my-0 ml-2">
+            <div class="d-flex flex-wrap justify-content-around">
+                <li class="nav-item d-flex justify-content-between align-items-center nav-social-list">
+                    <a class="nav-link nav-social">
+                        <i class="fa-brands fa-instagram fa-lg "></i>
+                    </a>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link nav-social">
+                        <i class="fa-brands fa-facebook fa-lg "></i>
+                    </a>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link nav-social">
+                        <i class="fa-brands fa-twitter fa-lg "></i>
+                    </a>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link nav-social">
+                        <i class="fa-brands fa-linkedin fa-lg "></i>
+                    </a>
+                </li>
+                <li class="nav-item d-flex justify-content-between align-items-center">
+                    <a class="nav-link nav-social">
+                        <i class="fa-brands fa-youtube fa-lg "></i>
+                    </a>
+                </li>
+            </div>
+            <li *ngIf="isLogin ==true" class="nav-item">
+
+                <a class="nav-link d-flex align-items-center justify-content-center " routerLink="/wishlist">
+                    <button class="btn position-relative">
+                        <span><i id="heart" [class]="isInWishList? 'fa-solid':'fa-regular'"
+                                class=" fa-lg mx-1 fa-heart text-danger"></i></span><span>wishlist</span>
+                    </button>
+                </a>
+            </li>
+
+            <li *ngIf="isLogin == false" class="nav-item">
+                <a class="nav-link" routerLink="/signin">Login</a>
+            </li>
+            <li *ngIf="isLogin == false" class="nav-item">
+                <a class="nav-link" routerLink="/signup">Register</a>
+            </li>
+            <li *ngIf="isLogin ==true" class="nav-item text-center d-flex flex-wrap align-items-center">
+                <a class="nav-link" (click)="logOut()" routerLink="">Logout</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="nav2 w-100 collapse navbar-collapse bg-white " id="collapsibleNavId">
+        <ul class="navbar-nav text-start d-flex  my-lg-0">
+            <div class="dropdown">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Categories
+                </button>
+                <div class="" aria-labelledby="dropdownMenuButton1">
+                    <ul class="dropdown-menu">
+                        <li *ngFor="let category of categories">
+
+                            <a (mouseenter)="subcatShow(categories.indexOf(category))"
+                                [routerLink]="['/category',category._id]" class="dropdown-item">
+                                <span>{{category.name}}</span>
+
+                            </a>
+
+                        </li>
+                        <ul class="subcategoty-list bg-white">
+                            <li *ngFor="let element of subcategory">
+
+                                <a class="dropdown-item" [routerLink]="['/category',element._id]">
+                                    {{element.name}}
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </ul>
+
+                </div>
+            </div>
+            <li class="nav-item text-center">
+                <a class="nav-link cursor-pointer text-start" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/brands" routerLinkActive="active" class="nav-link cursor-pointer">
+                    Brands
+                </a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/hot-offers" class="nav-link cursor-pointer">
+                    Hot offers
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</nav>

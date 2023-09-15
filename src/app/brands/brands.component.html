@@ -1,0 +1,11 @@
+<div class="container">
+
+
+    <div class="row d-flex flex-wrap my-3">
+
+        <div *ngFor="let brand of brands" class="col-md-2 d-flex justify-content-center align-items-center">
+            <img [routerLink]="['/brands-product',brand._id]" [src]='brand.image' class= "w-50 cursor-pointer">
+        </div>
+
+    </div>
+</div>

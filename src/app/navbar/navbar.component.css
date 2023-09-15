@@ -1,0 +1,150 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 111111;
+  padding:8px 3%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto !important;
+
+}
+
+.dropdown-menu{
+  width: 200px;
+}
+.nav-home-about {
+  width: 100%;
+  position: fixed;
+  z-index: 1111;
+  margin: auto;
+
+}
+.icon-square{
+  width: 10px;
+  height: 10px;
+
+
+}
+
+.fa-instagram:hover {
+  color: rgb(255, 45, 80) !important;
+}
+
+
+.fa-facebook:hover {
+  color: rgb(0, 64, 255) !important;
+}
+
+
+.fa-twitter:hover {
+  color: rgb(0, 140, 255) !important;
+}
+
+
+.fa-linkedin:hover {
+  color: rgb(22, 90, 250) !important;
+}
+
+.fa-youtube:hover {
+  color: rgb(203, 0, 0) !important;
+}
+
+.wishlist {
+  margin-bottom: 50px;
+}
+
+.searchInp {
+  width: 46%;
+  font-size: 13px !important;
+  line-height: 38px;
+  padding: 2px !important;
+}
+
+.search-product-list {
+  position: fixed;
+  z-index: 777777777789999999999999999999;
+  background-color: #F8F9FA;
+  top: 9%;
+  left: 13%;
+  width: 43%;
+  max-height: 20%;
+  /* min-height: 0px !important; */
+  overflow-y: scroll;
+  border-radius: 25px;
+}
+
+.search-element {
+  background-color: #f5f5f5;
+  margin-bottom: 1px;
+  font-size: 14px;
+  text-decoration: none;
+}
+.nav-social{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+.search-element span p {
+  text-decoration: none;
+  color: rgb(11, 11, 11);
+}
+
+.search-element span img {
+  width: 5%;
+}
+
+.nav2 {
+  position: absolute;
+  top: 100%;
+  width: 100% !important;
+  left: 0px;
+  padding: 0 3px;
+
+}
+
+.subcategoty-list {
+  list-style: none;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  color: #212529;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: 0.375rem; 
+  position: absolute !important;
+  top: 0 !important;
+  left: 100% !important;
+}
+
+
+@media only screen and (min-width:500px) and (max-width: 520px) {}
+
+@media only screen and (min-width:767px) and (max-width: 866px) {
+  .searchInp {
+    width: 10%;
+  }
+}
+
+@media only screen and (min-width:359px) and (max-width: 376px) {
+  .searchInp {
+    width: 35%;
+  }
+}
+
+@media only screen and (min-width: 389px) and (max-width: 600px) {
+  .nav-social {
+    margin-right: 1% !important;
+    margin-left: 1% !important;
+
+  }
+
+  .searchInp {
+    width: 40%;
+  }
+
+  .search-element span img {
+    width: 20%;
+  }
+
+}

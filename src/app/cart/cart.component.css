@@ -1,0 +1,31 @@
+
+.container {
+    margin-top: 7rem !important;
+}
+
+
+.cart-product{
+ border-radius: 10px;
+
+ transition:background-color 0.75s;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.cart-product:hover {
+    background-color: #62b762 ;
+}
+
+.cart-product:hover .item-content h5{
+    color: white !important ;
+}
+.col-md-11 h5{
+    transition:color 0.75s;
+}
+.item-image{
+    width: 15% !important;
+}
+.item-content{
+    width: 85% !important;
+}

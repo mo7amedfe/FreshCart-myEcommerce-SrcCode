@@ -1,0 +1,10 @@
+.image {
+    background-size: cover;
+    width: 100%;
+    height: 43%;
+    /* padding: 20px; */
+}
+
+.col-md-8{
+    margin: auto !important;
+}
